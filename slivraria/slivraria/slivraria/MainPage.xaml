@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="slivraria.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#262626" Padding="20" CornerRadius="0">
+            <Label Text="CRUD no SQLite" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="White" FontSize="24"/>
+        </Frame>
+        <StackLayout>
+            <Entry x:Name="txtTitulo" Placeholder="Titulo" TextColor="Black"
+               BackgroundColor="Yellow"
+               />
+            <Entry x:Name="txtAutor" Placeholder="Autor" TextColor="Black"
+               BackgroundColor="Yellow"
+               />
+            <Entry x:Name="txtEditora" Placeholder="Editora" TextColor="Black"
+               BackgroundColor="Yellow"
+               />
+            <Entry x:Name="txtAno" Placeholder="Ano da Publicação" TextColor="Black"
+               BackgroundColor="Yellow"
+               />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button x:Name="btnIncluir" Text="Incluir" Clicked="IncluirClicked"/>
+                <Button x:Name="btnAlterar" Text="Alterar" Clicked="AlterarClicked"/>
+                <Button x:Name="btnExcluir" Text="Excluir" Clicked="ExcluirClicked"/>
+            </StackLayout>
+            <Label Text="Lista de Livros" Margin="5,20,5,5" HorizontalTextAlignment="Center"
+                   FontSize="20" FontAttributes="Bold"/>
+            <ListView x:Name="lstvUsuarios" BackgroundColor="#c1d6e9" 
+                  HasUnevenRows="True"
+                  SeparatorColor="Blue"
+                      ItemTapped="lstvUsuarios_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Titulo}"  TextColor="Black" Detail="{Binding Autor}" DetailColor="Black" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
